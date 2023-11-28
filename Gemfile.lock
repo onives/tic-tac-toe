@@ -17,7 +17,8 @@ GEM
     rspec-support (3.12.1)
 
 PLATFORMS
-  universal-darwin-23
+  x86_64-darwin-23
+  x86_64-linux
 
 DEPENDENCIES
   rspec
