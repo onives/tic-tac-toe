@@ -16,6 +16,10 @@ RSpec 3.12
 
 Run the tests in /spec with 'rspec' command. They are written in rspec
 
+Github Actions are set up for CI. See file:
+
+- [main.yml](.github/workflows/main.yml)
+
 # Installations
 
 Install dependencies 
