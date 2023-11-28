@@ -1,0 +1,32 @@
+name: Tic Tac Toe CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        ruby-version: [3.0.0]
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set up Ruby
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby-version }}
+
+    - name: Install Dependencies
+      run: |
+        gem install bundler
+        bundle install
+
+    - name: Run RSpec Tests
+      run: bundle exec rspec --format documentation
