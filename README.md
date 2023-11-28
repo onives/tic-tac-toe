@@ -17,7 +17,7 @@ Run the tests in /spec with 'rspec' command. They are written in rspec
 # Installations
 
 Rspec: 
-    - gem install rspec
+  - gem install rspec
 
 To initialize rspec within the project 
-    - rspec --init
+  - rspec --init
