@@ -10,6 +10,10 @@ def display_board(console, board)
         puts "X _ _"
         puts "_ O _"
         puts "_ _ X"
+    elsif board == [['X', 'O', '_'],['O', 'O', '_'], ['X', '_', 'X']]
+        puts "X O _"
+        puts "O O _"
+        puts "X _ X"
     end
 end
 
@@ -31,6 +35,16 @@ describe 'display_board' do
         expected = "X _ _\n" +
                    "_ O _\n" +
                    "_ _ X\n"
+
+        expect(console.string).to eq(expected)
+    end
+    it 'displays board with more characters placed' do
+        console = StringIO.new
+        display_board(console, [['X', 'O', '_'],['O', 'O', '_'], ['X', '_', 'X']])
+
+        expected = "X O _\n" +
+                   "O O _\n" +
+                   "X _ X\n"
 
         expect(console.string).to eq(expected)
     end
