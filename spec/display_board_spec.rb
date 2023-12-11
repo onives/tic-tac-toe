@@ -2,9 +2,9 @@ require 'stringio'
 
 def display_board(console, board)
     $stdout = console
-    puts board[0].join(" ")
-    puts board[1].join(" ")
-    puts board[2].join(" ")
+    board.each do |row|
+        puts row.join(" ")
+    end
 end
 
 
