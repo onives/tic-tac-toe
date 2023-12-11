@@ -2,19 +2,9 @@ require 'stringio'
 
 def display_board(console, board)
     $stdout = console
-    if board == [['X', '_', '_'],['_', '_', '_'], ['_', '_', 'X']]
-        puts "X _ _"
-        puts "_ _ _"
-        puts "_ _ X"
-    elsif board == [['X', '_', '_'],['_', 'O', '_'], ['_', '_', 'X']]
-        puts "X _ _"
-        puts "_ O _"
-        puts "_ _ X"
-    elsif board == [['X', 'O', '_'],['O', 'O', '_'], ['X', '_', 'X']]
-        puts "X O _"
-        puts "O O _"
-        puts "X _ X"
-    end
+    puts board[0].join(" ")
+    puts board[1].join(" ")
+    puts board[2].join(" ")
 end
 
 
