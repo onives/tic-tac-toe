@@ -3,28 +3,38 @@ require 'stringio'
 
 
 describe "#get_user_input" do
-    let(:output) {StringIO.new}
-    it "should take player's input" do
-        input = StringIO.new("1,1\n")
-        get_player_input(output, input)
-        expected = "1,1\n"
-        expect(output.string.lines[0]).to eq(expected)
-    end
+    let(:board){Array.new(3){Array.new(3, "_")}}
     it "should record player X's input in the board" do
         input = StringIO.new("1,1\n")
-        get_player_input(output, input)
-        expected =  "_ _ _\n" +
-                    "_ X _\n" +
-                    "_ _ _\n"
-        expect(output.string.lines[1..-1].join("")).to eq(expected)
+        get_player_input(input, "X", board)
+        expected = [['_', '_', '_'],['_', 'X', '_'], ['_', '_', '_']]
+        expect(board).to eq(expected)
     end
-    # it "should record player O's input in the board" do
-    #     input = StringIO.new("1,1\n")
-    #     get_player_input(output, input)
-    #     expected =  "O _ _\n" +
-    #                 "_ X _\n" +
-    #                 "_ _ _\n"
-    #     expect(output.string.lines[1..-1].join("")).to eq(expected)
-    # end
+    it "should record player O's input in the board" do
+        input = StringIO.new("0,0\n")
+        get_player_input(input, "O", board)
+        expected =  [['O', '_', '_'],['_', '_', '_'], ['_', '_', '_']]
+        expect(board).to eq(expected)
+    end
+    it "should record second move for X" do
+        input = StringIO.new("0,1\n")
+        board = [['O', '_', '_'],['_', '_', '_'], ['_', '_', '_']]
+        get_player_input(input, "X", board)
+        expected =  [['O', 'X', '_'],['_', '_', '_'], ['_', '_', '_']]
+        expect(board).to eq(expected)
+    end
 end 
+
+describe "#switch player" do
+    it "should switch player to O" do
+        player = "X"
+        result = switch_player(player)
+        expect(result).to eql("O")
+    end
+    it "should switch player to X" do
+        player = "O"
+        result = switch_player(player)
+        expect(result).to eql("X")
+    end
+end
 
