@@ -181,4 +181,3 @@ describe '#display_board' do
   end
 end
 
-
