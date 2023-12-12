@@ -10,7 +10,7 @@ describe "#get_user_input" do
         expected = "1,1\n"
         expect(output.string.lines[0]).to eq(expected)
     end
-    it "should record player's input in the board" do
+    it "should record player X's input in the board" do
         input = StringIO.new("1,1\n")
         get_player_input(output, input)
         expected =  "_ _ _\n" +
