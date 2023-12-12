@@ -23,6 +23,11 @@ describe "#get_user_input" do
         expected =  [['O', 'X', '_'],['_', '_', '_'], ['_', '_', '_']]
         expect(board).to eq(expected)
     end
+    it "should return false when move made already has a xter" do
+        input = StringIO.new("0,1\n")
+        board = [['O', 'X', '_'],['_', '_', '_'], ['_', '_', '_']]
+        expect(get_player_input(input, "O", board)).to eql(false)
+    end
 end 
 
 describe "#switch player" do

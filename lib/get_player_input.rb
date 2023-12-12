@@ -7,7 +7,11 @@ def get_player_input(input, player, board=Array.new(3){Array.new(3, "_")})
     row = input.split(",")[0].to_i
     col = input.split(",")[1].to_i
 
-    board[row][col] = player
+    if board[row][col] == "_"
+        board[row][col] = player
+    else
+        false
+    end
 end
 
 def switch_player(player)
