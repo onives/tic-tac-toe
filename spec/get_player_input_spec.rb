@@ -18,5 +18,13 @@ describe "#get_user_input" do
                     "_ _ _\n"
         expect(output.string.lines[1..-1].join("")).to eq(expected)
     end
+    # it "should record player O's input in the board" do
+    #     input = StringIO.new("1,1\n")
+    #     get_player_input(output, input)
+    #     expected =  "O _ _\n" +
+    #                 "_ X _\n" +
+    #                 "_ _ _\n"
+    #     expect(output.string.lines[1..-1].join("")).to eq(expected)
+    # end
 end 
 
