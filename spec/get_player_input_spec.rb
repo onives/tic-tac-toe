@@ -19,3 +19,4 @@ describe "#get_user_input" do
         expect(output.string.lines[1..-1].join("")).to eq(expected)
     end
 end 
+
