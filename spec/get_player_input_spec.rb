@@ -43,3 +43,8 @@ describe "#switch player" do
     end
 end
 
+
+describe "#play_game" do 
+    it "should" do 
+    end
+end

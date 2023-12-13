@@ -4,8 +4,7 @@ def get_player_input(input, player, board=Array.new(3){Array.new(3, "_")})
     puts "Player #{player}, enter your placeholder in format num1, num2"
     input = input.gets.chomp
 
-    row = input.split(",")[0].to_i
-    col = input.split(",")[1].to_i
+    row, col = input.split(',').map(&:to_i)
 
     if board[row][col] == "_"
         board[row][col] = player
