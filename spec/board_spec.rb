@@ -1,5 +1,4 @@
-class Board
-end
+require './lib/board.rb'
 
 describe Board do
   it 'exists' do
