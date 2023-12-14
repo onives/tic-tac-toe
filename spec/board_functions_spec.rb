@@ -1,4 +1,4 @@
-require './lib/tic_tac_toe.rb'
+require './lib/board_functions.rb'
 require 'stringio'
 
 describe '#find_winner' do

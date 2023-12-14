@@ -1,4 +1,4 @@
-require './lib/get_player_input.rb'
+require './lib/player_functions.rb'
 require 'stringio'
 
 
