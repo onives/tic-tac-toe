@@ -42,9 +42,3 @@ describe "#switch player" do
         expect(result).to eql("X")
     end
 end
-
-
-describe "#play_game" do 
-    it "should" do 
-    end
-end
