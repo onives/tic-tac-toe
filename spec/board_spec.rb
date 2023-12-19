@@ -8,7 +8,6 @@ describe Board do
             expect(subject.find_winner).to eql(false)
         end
         it 'returns "X" when, given a board where X claims top row' do
-            # allow(subject).to receive(:make_move){"X"}
             subject.make_move(0, 0, "X")
             subject.make_move(0, 1, "X")
             subject.make_move(0, 2, "X")
@@ -58,7 +57,7 @@ describe Board do
             expected =  "X _ _\n" +
                         "_ _ _\n" +
                         "_ _ X\n"
-                        
+
             expect(console.string).to eq(expected)
         end
     end 

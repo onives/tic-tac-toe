@@ -42,6 +42,24 @@ class Board
         :tie
     end
 
+    def display_board(console)
+        @grid.each do |row|
+            console.puts row.join(" ")
+        end
+    end
+
+    def game_over?()
+        if (@grid[0][0] == "X")
+            return true
+        end
+        false
+    end
+
+    def make_move(row, col, player)
+        @grid[row][col] = player
+    end
+
+    private
     def find_winner_in_line(row)
         if row.all? { |cell| cell == 'X' }
             'X'
@@ -63,23 +81,6 @@ class Board
         elsif winner_in_line_2
             return winner_in_line_2
         end
-    end
-
-    def display_board(console)
-        @grid.each do |row|
-            console.puts row.join(" ")
-        end
-    end
-
-    def game_over?()
-        if (@grid[0][0] == "X")
-            return true
-        end
-        false
-    end
-
-    def make_move(row, col, player)
-        @grid[row][col] = player
     end
 
 end
