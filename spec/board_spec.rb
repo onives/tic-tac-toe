@@ -131,9 +131,7 @@ describe Board do
             subject.make_move(2, 2, "X")
 
             expect(subject.find_winner).to eql(:tie)
-          end
-        
-        # pending "Fill in tests from earlier find_winner implementation"
+        end
     end
 
     describe "#game_over?" do
