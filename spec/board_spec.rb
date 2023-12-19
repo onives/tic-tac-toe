@@ -14,6 +14,13 @@ describe Board do
 
             expect(subject.find_winner).to eql('X')
         end
+        it 'returns "X" when, given a board where X claims middle row' do
+            subject.make_move(1, 0, "X")
+            subject.make_move(1, 1, "X")
+            subject.make_move(1, 2, "X")
+
+            expect(subject.find_winner).to eql('X')
+        end
         it 'returns "O" when, given a board where X wins' do
             allow(subject).to receive(:find_winner){'O'}
             expect(subject.find_winner).to eql('O')
