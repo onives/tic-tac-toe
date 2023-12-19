@@ -2,6 +2,7 @@ require './lib/board_functions.rb'
 require 'stringio'
 
 describe '#find_winner' do
+  
   it 'returns false when, given an empty game board' do
     board = [
       ['-', '-', '-'],
