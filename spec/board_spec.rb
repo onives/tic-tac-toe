@@ -172,5 +172,18 @@ describe Board do
 
             expect(console.string).to eq(expected)
         end
+        it 'displays board with O placed' do
+            subject.make_move(0, 0, "X")
+            subject.make_move(1, 1, "O")
+            subject.make_move(2, 2, "X")
+
+            subject.display_board(console)
+            
+            expected =  "X _ _\n" +
+                        "_ O _\n" +
+                        "_ _ X\n"
+
+            expect(console.string).to eq(expected)
+        end
     end 
 end
