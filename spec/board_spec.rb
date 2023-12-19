@@ -119,6 +119,19 @@ describe Board do
 
             expect(subject.find_winner).to eql('O')
         end
+        it 'returns :tie when, given a board where neither X nor O wins' do
+            subject.make_move(0, 0, "X")
+            subject.make_move(0, 1, "O")
+            subject.make_move(0, 2, "X")
+            subject.make_move(1, 0, "O")
+            subject.make_move(1, 1, "X")
+            subject.make_move(1, 2, "O")
+            subject.make_move(2, 0, "O")
+            subject.make_move(2, 1, "X")
+            subject.make_move(2, 2, "O")
+
+            expect(subject.find_winner).to eql(:tie)
+          end
         
         # pending "Fill in tests from earlier find_winner implementation"
     end
