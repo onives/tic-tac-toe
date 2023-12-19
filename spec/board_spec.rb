@@ -91,6 +91,13 @@ describe Board do
 
             expect(subject.find_winner).to eql('O')
         end
+        it 'returns "X" when, given a board where X claims the righ-left diagonal' do
+            subject.make_move(0, 0, "X")
+            subject.make_move(1, 1, "X")
+            subject.make_move(2, 2, "X")
+
+            expect(subject.find_winner).to eql('X')
+        end
         
         # pending "Fill in tests from earlier find_winner implementation"
     end
