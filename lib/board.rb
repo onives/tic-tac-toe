@@ -1,21 +1,12 @@
 class Board
 
     def initialize()
-        @grid = Array.new(3){Array.new(3, '-')}
+        @grid = Array.new(3){Array.new(3, '_')}
     end
 
 
     #TODO: Port code from board_functions::find_winner over to here, changing the board parameter to the @grid instance variable
     def find_winner()
-
-        # check for any unfilled space
-        @grid.each do |row|
-            row.each do |col|
-                if col == '-'
-                    return false
-                end
-            end
-        end
 
         # returns row winner
         @grid.each do |row|
@@ -37,6 +28,15 @@ class Board
         diagonal_winner = find_winner_in_diagonal(@grid)
         if diagonal_winner
             return diagonal_winner
+        end
+
+        # check for any unfilled space
+        @grid.each do |row|
+            row.each do |col|
+                if col == '_'
+                    return false
+                end
+            end
         end
 
         :tie
@@ -65,8 +65,8 @@ class Board
         end
     end
 
-    def display_board(console, board)
-        board.each do |row|
+    def display_board(console)
+        @grid.each do |row|
             console.puts row.join(" ")
         end
     end

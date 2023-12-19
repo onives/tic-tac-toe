@@ -1,19 +1,21 @@
 require './lib/board.rb'
+require 'stringio'
 
-describe Board 
+describe Board do
     describe "#find_winner" do
         let(:subject){Board.new}
         it 'returns false when, given an empty game board' do
-            # subject = Board.new
             expect(subject.find_winner).to eql(false)
         end
-        it 'returns "X" when, given a board where X wins' do
-            # subject = Board.new
-            allow(subject).to receive(:find_winner){'X'}
+        it 'returns "X" when, given a board where X claims top row' do
+            # allow(subject).to receive(:make_move){"X"}
+            subject.make_move(0, 0, "X")
+            subject.make_move(0, 1, "X")
+            subject.make_move(0, 2, "X")
+
             expect(subject.find_winner).to eql('X')
         end
         it 'returns "O" when, given a board where X wins' do
-            # subject = Board.new
             allow(subject).to receive(:find_winner){'O'}
             expect(subject.find_winner).to eql('O')
         end
@@ -43,4 +45,21 @@ describe Board
         end
         # pending "returns true if either player has won"
     end
-# end
+
+    describe "#display_board" do 
+        let(:subject){Board.new}
+        let(:console) {StringIO.new}
+        it 'displays the board given output console' do
+            subject.make_move(0, 0, "X")
+            subject.make_move(2, 2, "X")
+
+            subject.display_board(console)
+            
+            expected =  "X _ _\n" +
+                        "_ _ _\n" +
+                        "_ _ X\n"
+                        
+            expect(console.string).to eq(expected)
+        end
+    end 
+end
