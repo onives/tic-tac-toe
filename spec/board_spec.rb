@@ -84,6 +84,13 @@ describe Board do
 
             expect(subject.find_winner).to eql('O')
         end
+        it 'returns "O" when, given a board where O claims right column' do
+            subject.make_move(0, 2, "O")
+            subject.make_move(1, 2, "O")
+            subject.make_move(2, 2, "O")
+
+            expect(subject.find_winner).to eql('O')
+        end
         
         # pending "Fill in tests from earlier find_winner implementation"
     end
