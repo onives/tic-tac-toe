@@ -28,8 +28,11 @@ describe Board do
 
             expect(subject.find_winner).to eql('X')
         end
-        it 'returns "O" when, given a board where X wins' do
-            allow(subject).to receive(:find_winner){'O'}
+        it 'returns "O" when, given a board where O claims top row' do
+            subject.make_move(0, 0, "O")
+            subject.make_move(0, 1, "O")
+            subject.make_move(0, 2, "O")
+
             expect(subject.find_winner).to eql('O')
         end
         
