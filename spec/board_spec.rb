@@ -49,7 +49,7 @@ describe Board do
 
             expect(subject.find_winner).to eql('O')
         end
-        it 'returns "X" when, given a board where X claims top column' do
+        it 'returns "X" when, given a board where X claims left column' do
             subject.make_move(0, 0, "X")
             subject.make_move(1, 0, "X")
             subject.make_move(2, 0, "X")
@@ -60,6 +60,13 @@ describe Board do
             subject.make_move(0, 1, "X")
             subject.make_move(1, 1, "X")
             subject.make_move(2, 1, "X")
+
+            expect(subject.find_winner).to eql('X')
+        end
+        it 'returns "X" when, given a board where X claims right column' do
+            subject.make_move(0, 2, "X")
+            subject.make_move(1, 2, "X")
+            subject.make_move(2, 2, "X")
 
             expect(subject.find_winner).to eql('X')
         end
