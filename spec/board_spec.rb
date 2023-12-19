@@ -6,8 +6,13 @@ describe Board do
       subject = Board.new
       subject.find_winner
     end
-
+    it 'returns false when, given an empty game board' do
+        subject = Board.new
+        expect(subject.find_winner).to eql(false)
+    end
+    
     pending "Fill in tests from earlier find_winner implementation"
+
   end
 
   describe "#game_over?" do

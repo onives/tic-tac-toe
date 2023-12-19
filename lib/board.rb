@@ -5,6 +5,7 @@ class Board
 
   #TODO: Port code from board_functions::find_winner over to here, changing the board parameter to the @grid instance variable
   def find_winner()
+    return false
   end
 
   def game_over?()
