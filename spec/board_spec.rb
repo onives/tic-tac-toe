@@ -202,4 +202,12 @@ describe Board do
             expect(console.string).to eq(expected)
         end
     end 
+    describe "#make_move" do 
+        let(:subject){Board.new}
+        it "should record player X's input in the board" do
+            subject.make_move(1, 1, 'X')
+            expected = [['_', '_', '_'],['_', 'X', '_'], ['_', '_', '_']]
+            expect(subject.get_grid).to eq(expected)
+        end
+    end
 end

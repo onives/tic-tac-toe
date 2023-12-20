@@ -4,6 +4,10 @@ class Board
         @grid = Array.new(3){Array.new(3, '_')}
     end
 
+    def get_grid
+        @grid
+    end
+
     def find_winner()
 
         # returns row winner
