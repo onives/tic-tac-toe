@@ -14,4 +14,10 @@ describe Player do
             expect(result).to eq(expected)
         end
     end
+
+    describe "#make_move" do 
+        it "exists" do
+            subject.make_move
+        end
+    end
 end

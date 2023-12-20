@@ -5,4 +5,7 @@ class Player
         input = input.gets.chomp
         row, col = input.split(',').map(&:to_i)
     end
+
+    def make_move
+    end
 end
