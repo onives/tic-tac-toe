@@ -214,6 +214,12 @@ describe Board do
             expected = [['O', '_', '_'],['_', '_', '_'], ['_', '_', '_']]
             expect(subject.get_grid).to eq(expected)
         end
+        it "should record second move for X" do
+            subject.make_move(0, 0, 'O')
+            subject.make_move(0, 1, 'X')
+            expected = [['O', 'X', '_'],['_', '_', '_'], ['_', '_', '_']]
+            expect(subject.get_grid).to eq(expected)
+        end
 
     end
 end
