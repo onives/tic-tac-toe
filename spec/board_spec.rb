@@ -220,6 +220,12 @@ describe Board do
             expected = [['O', 'X', '_'],['_', '_', '_'], ['_', '_', '_']]
             expect(subject.get_grid).to eq(expected)
         end
+        it "should return false when move made already has a xter" do
+            subject.make_move(0, 0, 'O')
+            subject.make_move(0, 1, 'X')
+            result = subject.make_move(0, 1, 'O')
+            expect(result).to eq(false)
+        end
 
     end
 end
