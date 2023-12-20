@@ -1,5 +1,3 @@
-# require_relative 'tic_tac_toe.rb'
-
 def get_player_input(input, player, board=Array.new(3){Array.new(3, "_")})
     puts "Player #{player}, enter your placeholder in format num1, num2"
     input = input.gets.chomp
