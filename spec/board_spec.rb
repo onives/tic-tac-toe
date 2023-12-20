@@ -210,7 +210,7 @@ describe Board do
             expect(subject.get_grid).to eq(expected)
         end
         it "should record player O's input in the board" do
-            subject.make_move(0, 0, 'X')
+            subject.make_move(0, 0, 'O')
             expected = [['O', '_', '_'],['_', '_', '_'], ['_', '_', '_']]
             expect(subject.get_grid).to eq(expected)
         end

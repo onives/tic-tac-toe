@@ -58,7 +58,11 @@ class Board
     end
 
     def make_move(row, col, player)
-        @grid[row][col] = player
+        if @grid[row][col] == "_"
+            @grid[row][col] = player
+        else
+            false
+        end
     end
 
     private
