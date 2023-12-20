@@ -4,14 +4,16 @@ require './lib/board.rb'
 
 
 describe Game do
-    # describe "#switch_player" do 
-    #     let(:subject){Game.new}
-    #     let(:board){Board.new}
-
-    #     it "should switch player to O" do
-    #         player = "X"
-    #         result = subject.switch_player
-    #         expect(result).to eql("O")
-    #     end
-    # end
+    describe "#switch_player" do 
+        subject {Game.new}
+        it "exist" do
+            subject.switch_player
+        end
+    end
+    describe "#play_game" do 
+        subject {Game.new}
+        it "exist" do
+            subject.play_game
+        end
+    end
 end
