@@ -6,6 +6,4 @@ class Player
         row, col = input.split(',').map(&:to_i)
     end
 
-    def make_move
-    end
 end
