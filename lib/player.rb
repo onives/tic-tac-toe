@@ -9,5 +9,8 @@ class Player
         input = input.gets.chomp
         row, col = input.split(',').map(&:to_i)
     end
+    def player
+        @player
+    end
 
 end

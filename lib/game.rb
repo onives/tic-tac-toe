@@ -16,7 +16,9 @@ class Game
 
     def play_game
         @board.display_board(@output)
-        @player.get_player_input(@input, @output)
+        row, col = @player.get_player_input(@input, @output)
+        @board.make_move(row, col, @player.player)
+        
 
     end
 
@@ -24,7 +26,7 @@ end
 
 
 # display board
-#request player for input
+# request player for input
 # take player's input 
 # update the board for with player's letter
 #check for winner
