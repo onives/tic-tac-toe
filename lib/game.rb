@@ -3,7 +3,7 @@ require 'stringio'
 
 class Game
 
-    def initialize(board: Board.new, player: Player.new('X'), input: StringIO.new("0,0\n"), output: StringIO.new)
+    def initialize(board, player, input, output)
         @board = board
         @player = player
         @input = input
