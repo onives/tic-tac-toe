@@ -8,6 +8,7 @@ class Game
     end
 
     def play_game
+        @board.display_board
     end
 
 end

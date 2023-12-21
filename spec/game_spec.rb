@@ -13,12 +13,10 @@ describe Game do
     end
     describe "#play_game" do 
         let(:board){double("board")}
-        it "exist" do
+        it "should display the game board" do 
+            expect(board).to receive(:display_board)
             subject = Game.new(board)
             subject.play_game
-        end
-        it "should display the game board" do 
-            subject = Game.new(board)
         end
     end
 end
