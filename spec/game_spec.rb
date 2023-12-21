@@ -30,9 +30,11 @@ describe Game do
             subject.play_game
         end
         it "should update board with player's input" do 
-            board = double("board", :display_board => '', )
+            board = double("board", :display_board => '' )
+            allow(player).to receive(:get_player_input){[1, 0]}
+            allow(player).to receive(:player){"X"}
             expect(board).to receive(:make_move).with(1, 0, 'X')
-            subject = Game.new(board: board, input: StringIO.new("1,0\n"))
+            subject = Game.new(board: board, player: player)
             subject.play_game
         end
     end
