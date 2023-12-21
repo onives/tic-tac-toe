@@ -14,11 +14,11 @@ describe Game do
     end
     describe "#play_game" do 
         # let(:board){double("board")}
-        let(:player){double("player", :player => '')}
+        let(:player){double("player", :player => '', :get_player_input => '')}
         it "should display the game board" do
             board = double("board", :make_move => '')
             expect(board).to receive(:display_board)
-            subject = Game.new(board: board)
+            subject = Game.new(board: board, player: player)
             subject.play_game
         end
         it "should request user for input" do 
