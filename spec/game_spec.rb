@@ -18,13 +18,13 @@ describe Game do
         let(:output){StringIO.new}
         let(:player){double("player", :player => 'X', :get_player_input => '')}
         it "should display the game board" do
-            board = double("board", :make_move => '')
+            board = double("board", :make_move => '', :find_winner => '')
             expect(board).to receive(:display_board)
             subject = Game.new(board, player, input, output)
             subject.play_game
         end
         it "should request user for input" do 
-            board = double("board")
+            board = double("board", :find_winner => '')
             allow(board).to receive(:display_board)
             allow(board).to receive(:make_move)
             expect(player).to receive(:get_player_input)
@@ -32,9 +32,26 @@ describe Game do
             subject.play_game
         end
         it "should update board with player's input" do 
-            board = double("board", :display_board => '' )
+            board = double("board", :display_board => '', :find_winner => '' )
             allow(player).to receive(:get_player_input){[1, 0]}
             expect(board).to receive(:make_move).with(1, 0, 'X')
+            subject = Game.new(board, player, input, output)
+            subject.play_game
+        end
+        it "should check for winner and return X when X wins" do 
+            board = double("board", :display_board => '' )
+            allow(player).to receive(:get_player_input){''}
+
+            allow(player).to receive(:get_player_input){[0, 1]}
+            allow(player).to receive(:get_player_input){[0, 1]}
+            allow(player).to receive(:get_player_input){[0, 2]}
+
+            allow(board).to receive(:make_move).with(0, 0, 'X')
+            allow(board).to receive(:make_move).with(0, 1, 'X')
+            allow(board).to receive(:make_move).with(0, 2, 'X')
+
+            expect(board).to receive(:find_winner){'X'}
+
             subject = Game.new(board, player, input, output)
             subject.play_game
         end

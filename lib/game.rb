@@ -18,6 +18,7 @@ class Game
         @board.display_board(@output)
         row, col = @player.get_player_input(@input, @output)
         @board.make_move(row, col, @player.player)
+        @board.find_winner
         
 
     end
