@@ -38,7 +38,7 @@ describe Game do
             subject = Game.new(board, [playerX, playerO], input, output)
             subject.play_game
         end
-        xit "should be able to switch players" do 
+        it "should be able to switch players" do 
             board = double("board", :display_board => '', :make_move => '', :find_winner => '' )
             expect(playerX).to receive(:get_player_input)
             expect(playerO).to receive(:get_player_input)

@@ -8,7 +8,7 @@ class Game
         @players = players
         @input = input
         @output = output
-        
+        @current_player_index = 0
     end
 
     def play_game
@@ -16,20 +16,17 @@ class Game
         row, col = current_player.get_player_input(@input, @output)
         @board.make_move(row, col, current_player.player)
         @board.find_winner
-        #switch_player
+        switch_player
+        row, col = current_player.get_player_input(@input, @output)
     end
 
     private
     def current_player
-        @players[0]
+        @players[@current_player_index]
     end
 
     def switch_player
-        if @player == "X"
-            "O"
-        elsif @player == "O"
-            "X"
-        end
+        @current_player_index = 1
     end
 
 end
