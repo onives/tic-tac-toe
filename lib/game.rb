@@ -11,16 +11,23 @@ class Game
         
     end
 
-    def switch_player
-    end
-
     def play_game
         @board.display_board(@output)
         row, col = @player.get_player_input(@input, @output)
         @board.make_move(row, col, @player.player)
         @board.find_winner
+        switch_player
         
 
+    end
+
+    private
+    def switch_player
+        if @player == "X"
+            "O"
+        elsif @player == "O"
+            "X"
+        end
     end
 
 end
