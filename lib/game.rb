@@ -3,9 +3,9 @@ require 'stringio'
 
 class Game
 
-    def initialize(board, player, input, output)
+    def initialize(board, players, input, output)
         @board = board
-        @player = player
+        @players = players
         @input = input
         @output = output
         
@@ -13,15 +13,17 @@ class Game
 
     def play_game
         @board.display_board(@output)
-        row, col = @player.get_player_input(@input, @output)
-        @board.make_move(row, col, @player.player)
+        row, col = current_player.get_player_input(@input, @output)
+        @board.make_move(row, col, current_player.player)
         @board.find_winner
-        switch_player
-        
-
+        #switch_player
     end
 
     private
+    def current_player
+        @players[0]
+    end
+
     def switch_player
         if @player == "X"
             "O"
