@@ -34,7 +34,12 @@ class Game
     end
 
     def switch_player
-        @current_player_index = 1
+        if @current_player_index == 0
+            @current_player_index = 1
+        elsif @current_player_index == 1
+            @current_player_index = 0
+        end
+        
     end
 
 end

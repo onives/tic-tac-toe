@@ -52,5 +52,13 @@ describe Game do
             subject = Game.new(board, [playerX, playerO], input, output)
             subject.play_game
         end
+        it "should be able to switch players back to X" do 
+            board = double("board", :display_board => '', :make_move => '' )
+            allow(board).to receive(:find_winner).and_return(false, false, 'X')
+            expect(playerX).to receive(:get_player_input).twice
+            expect(playerO).to receive(:get_player_input)
+            subject = Game.new(board, [playerX, playerO], input, output)
+            subject.play_game
+        end
     end
 end
