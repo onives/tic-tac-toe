@@ -1,4 +1,4 @@
-require 'player.rb'
+require_relative 'player.rb'
 require 'stringio'
 
 class Game
