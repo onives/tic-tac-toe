@@ -1,4 +1,3 @@
-require_relative 'player.rb'
 require 'stringio'
 
 class Game
@@ -43,13 +42,3 @@ class Game
     end
 
 end
-
-
-# display board
-# request player for input
-# take player's input 
-# update the board for with player's letter
-#check for winner
-# switch players
-
-# repeat 1-5

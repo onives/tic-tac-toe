@@ -2,18 +2,9 @@ require 'stringio'
 require './lib/game.rb'
 require './lib/board.rb'
 
-def ideas_for_making_test_doubles_change_behavior_over_time
-    #one possible syntax
-    allow(board).to receive(:find_winner).and_return false #return false the first time #find_winner is called
-    allow(board).to receive(:find_winner).and_return 'X' #return 'X' the second time #find_winner is called
-
-    #another possible syntax
-    allow(board).to receive(:find_winner).and_return [false, 'X'] #return false the first time #find_winner is called and return 'X' the second time it is called
-end
 
 describe Game do
     describe "#play_game" do 
-        # let(:board){double("board")}
         let(:input){StringIO.new}
         let(:output){StringIO.new}
         let(:playerX){double("player_x", :player => 'X', :get_player_input => '')}
