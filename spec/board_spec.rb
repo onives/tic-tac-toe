@@ -134,29 +134,6 @@ describe Board do
         end
     end
 
-    describe "#game_over?" do
-        it "returns false, when no players have placed letters" do
-            subject = Board.new
-            expect(subject.game_over?).to eql(false)
-        end
-
-        it "returns true when the board is full" do
-            subject = Board.new
-            subject.make_move(0, 0, "X")
-            subject.make_move(0, 1, "X")
-            subject.make_move(0, 2, "X")
-            subject.make_move(1, 0, "X")
-            subject.make_move(1, 1, "X")
-            subject.make_move(1, 2, "X")
-            subject.make_move(2, 0, "X")
-            subject.make_move(2, 1, "X")
-            subject.make_move(2, 2, "X")
-
-            expect(subject.game_over?).to eql(true)
-        end
-        # pending "returns true if either player has won"
-    end
-
     describe "#display_board" do 
         let(:subject){Board.new}
         let(:console) {StringIO.new}

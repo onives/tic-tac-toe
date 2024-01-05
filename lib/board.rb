@@ -50,13 +50,6 @@ class Board
         end
     end
 
-    def game_over?()
-        if (@grid[0][0] == "X")
-            return true
-        end
-        false
-    end
-
     def make_move(row, col, player)
         if @grid[row][col] == "_"
             @grid[row][col] = player
