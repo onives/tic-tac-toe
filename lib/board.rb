@@ -35,7 +35,7 @@ class Board
         # check for any unfilled space
         @grid.each do |row|
             row.each do |col|
-                if col == '_'
+                if is_empty_cell(col)
                     return false
                 end
             end
@@ -51,9 +51,10 @@ class Board
     end
 
     def make_move(row, col, player)
-        if @grid[row][col] == "_"
+        if is_empty_cell(@grid[row][col])
             @grid[row][col] = player
         else
+            puts "Wrong move, choose another!"
             false
         end
     end
@@ -80,6 +81,10 @@ class Board
         elsif winner_in_line_2
             return winner_in_line_2
         end
+    end
+
+    def is_empty_cell(cell)
+        cell == "_"
     end
 
 end
