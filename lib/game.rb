@@ -17,8 +17,10 @@ class Game
             if @board.make_move(row, col, current_player.player)
                 winner = @board.find_winner
                 if winner == 'X' or winner == 'O'
+                    @output.puts "Player #{winner} wins!"
                     break
                 elsif winner == :tie
+                    @output.puts "It's a tie!"
                     break
                 else
                     switch_player
