@@ -51,5 +51,25 @@ describe Game do
             subject = Game.new(board, [playerX, playerO], input, output)
             subject.play_game
         end
+        it "should announce game result when there's a win" do 
+            board = double("board", :display_board => '', :make_move => '' )
+            allow(board).to receive(:find_winner).and_return('X')
+            expected = "Player X wins!\n"
+            
+            subject = Game.new(board, [playerX, playerO], input, output)
+            subject.play_game
+
+            expect(output.string).to eql(expected)
+        end
+        it "should announce game result when there's a tie" do 
+            board = double("board", :display_board => '', :make_move => '' )
+            allow(board).to receive(:find_winner).and_return(:tie)
+            expected = "It's a tie!\n"
+            
+            subject = Game.new(board, [playerX, playerO], input, output)
+            subject.play_game
+
+            expect(output.string).to eql(expected)
+        end
     end
 end
